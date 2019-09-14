@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--版本-->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sx</groupId>
+    <artifactId>base-in-api</artifactId>
+    <version>1.0.0</version>
+    <name>base-in-api</name>
+    <packaging>jar</packaging>
+    <description>内部api服务调用</description>
+
+    <!--父类-->
+    <parent>
+        <groupId>com.sx</groupId>
+        <artifactId>boot-model-base</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!--配置-->
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!--依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>com.sx</groupId>
+            <artifactId>base-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
+
+
+</project>

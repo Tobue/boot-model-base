@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sx.dataaccess.mapper.user.UserMapper">
+    <resultMap type="com.sx.dataaccess.entiry.user.User" id="user">
+        <id column="id" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+
+    <sql id="column_List">
+      u.id,u.username,u.password,u.create_time
+    </sql>
+
+    <sql id="set_column_sql">
+        <set>
+            <if test="username != null">
+                username = #{username, jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password, jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime, jdbcType=TIMESTAMP},
+            </if>
+        </set>
+    </sql>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into
+        user
+        <include refid="set_column_sql"/>
+    </insert>
+
+    <update id="update">
+        update
+        user
+        <include refid="set_column_sql"/>
+        where
+        id = #{id}
+    </update>
+
+    <select id="findById" resultMap="user" parameterType="java.lang.Integer">
+        SELECT
+        <include refid="column_List"/>
+        FROM user u
+        WHERE id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <select id="findAllUser" resultMap="user" parameterType="java.lang.Integer">
+        SELECT
+        <include refid="column_List"/>
+        FROM user u limit 10
+    </select>
+
+    <delete id="delete" parameterType="integer">
+       delete from user WHERE id = #{id, jdbcType=INTEGER}
+    </delete>
+
+</mapper>

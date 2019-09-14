@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--版本-->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sx</groupId>
+    <artifactId>boot-model-base</artifactId>
+    <version>1.0.0</version>
+    <name>boot-model-base</name>
+    <packaging>pom</packaging>
+    <description>聚合工程顶级父类</description>
+
+    <!--父类-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.8.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <!--子类-->
+    <modules>
+        <module>base-web</module>
+        <module>base-core</module>
+        <module>base-dataaccess</module>
+        <module>base-common</module>
+        <module>base-management-web</module>
+        <module>base-app</module>
+        <module>base-in-api</module>
+        <module>base-out-api</module>
+    </modules>
+
+    <!--配置-->
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!--依赖-->
+    <dependencies>
+        <!--boot启动项 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <!--mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--Api文档swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <!--编译-->
+    <!--指定使用maven打包-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
