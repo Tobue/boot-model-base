@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.sx.service")
 @MapperScan("com.sx.mapper")
+@ComponentScan("com.sx.service")
 @ComponentScan("com.sx.controller")
 public class WebApplication {
 
@@ -16,3 +16,10 @@ public class WebApplication {
     }
 
 }
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 package com.sx.service.user;
 
 
+import com.sx.common.result.ServiceResult;
 import com.sx.dataaccess.entiry.user.User;
 
 import java.util.List;
@@ -43,4 +44,7 @@ public interface UserService {
      * @return
      */
     int delete(int id);
+
+    ServiceResult<String,List<User>> queryList();
+
 }
